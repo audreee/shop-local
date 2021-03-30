@@ -1,0 +1,65 @@
+body #root {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.app-container {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  height: 100%;
+  margin: auto;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar {
+  padding-top: 25%;
+  width: 100%;
+}
+
+.search-bar input[type="text"] {
+  width: 66%;
+  border: none;
+  border-bottom: 0.2em solid black;
+}
+
+.search-bar input[type="text"] {
+  width: 66%;
+  border: none;
+  border-bottom: 0.2em solid black;
+}
+.search-bar input[type="text"]:focus {
+  outline: none !important;
+  opacity: 0.5;
+}
+
+.search-icon {
+  margin-left: 0.5em;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.name {
+
+}
