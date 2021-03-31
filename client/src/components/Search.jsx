@@ -17,6 +17,7 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     let terms = this.state.terms.split(' ');
+    this.props.searchBusinesses(terms);
   }
 
   render() {

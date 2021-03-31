@@ -16,12 +16,19 @@ class App extends React.Component {
   }
 
   searchBusinesses(searchTerms) {
-    // send search terms to server
-    // receive response and update results
-    // push the first 4 results to displayed results
+    this.setState({ results: [], displayedResults: [] })
+    axios.get('/businesses', { params: { terms: searchTerms }})
+    .then((res) => {
+      console.log(res.data)
+      this.setState({ results: res.data }, this.showResults);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   }
 
   showResults() {
+    window.addEventListener('scroll', this.showMoreOnScroll);
     let currentLength = this.state.displayedResults.length;
     if (currentLength === this.state.results.length) {
       window.removeEventListener('scroll', this.showMoreOnScroll, false);
