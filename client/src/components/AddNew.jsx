@@ -34,7 +34,7 @@ class AddNew extends React.Component {
 
   render() {
     return (
-      <div className="flex-column add-new">
+      <div className="flex-column centered add-new">
         <input type="text" name="name" value={this.state.name} placeholder="Business Name" onChange={this.handleChange}></input>
         <input type="text" name="category" value={this.state.category} placeholder="Category" onChange={this.handleChange}></input>
         <input type="tel" name="phone" value={this.state.phone} placeholder="Phone" onChange={this.handleChange}></input>

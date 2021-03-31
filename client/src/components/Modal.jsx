@@ -4,7 +4,7 @@ const Modal = (props) => {
   return (
     props.show &&
     <div className="flex-row modal" onClick={props.handleClose}>
-      <div className="modalContent fadeIn" onClick={e => e.stopPropagation()}>
+      <div className="fadeIn modalContent" onClick={e => e.stopPropagation()}>
           <button className="modalCloseButton" onClick={props.handleClose}><i className={`fas fa-times fa-lg`}></i></button>
           {props.children}
       </div>

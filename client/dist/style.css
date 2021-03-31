@@ -110,6 +110,11 @@ h5 {
   opacity: 0.5;
 }
 
+.fadeIn {
+  animation-duration: 1s;
+  -webkit-animation: fadeIn 1s forwards;
+}
+
 .list-entry {
   margin-top: 0.5em;
   border-bottom: 1px solid black;
@@ -124,6 +129,8 @@ h5 {
 		opacity: 1;
 	}
 }
+
+
 
 .pad-right {
   padding-right: .3em;
