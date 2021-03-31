@@ -5,6 +5,7 @@ import Search from './Search.jsx';
 import List from './List.jsx';
 import Modal from './Modal.jsx';
 import AddNew from './AddNew.jsx';
+import Map from './Map.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -66,7 +67,7 @@ class App extends React.Component {
     }
   }
 
-  toggleModal = () => {
+  toggleModal() {
     this.setState({showModal: !this.state.showModal});
   };
 
@@ -92,6 +93,7 @@ class App extends React.Component {
         <div className="app-container">
             <h2 className="title">Localize LA</h2>
             <Search searchBusinesses={this.searchBusinesses} />
+            <Map />
             <List displayedResults={this.state.displayedResults} />
             <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew /></Modal>
         </div>
