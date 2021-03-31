@@ -69,6 +69,7 @@ class App extends React.Component {
   render() {
     return(
       <div className="app-container">
+        <h2 className="title">Localize LA</h2>
         <Search searchBusinesses={this.searchBusinesses} />
         <List displayedResults={this.state.displayedResults} />
       </div>

@@ -4,13 +4,21 @@ body #root {
   /* margin: auto; */
 }
 
+h3, h5, h6, p {
+  padding: 0;
+}
+
+h5 {
+  font-size: 0.5em;
+}
+
 .app-container {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 2em;
   color: black;
   display: flex;
   flex-direction: column;
-  width: 66%;
+  width: 50%;
   height: 100%;
   margin: auto;
 }
@@ -30,16 +38,22 @@ body #root {
   align-items: center;
 }
 
+.title {
+  text-align: center;
+  padding-top: 2.5em;
+  font-size: 1.5em;
+}
+
 .search-bar {
-  padding-top: 25%;
+  padding-top: 3em;
   width: 100%;
 }
 
 .search-bar input[type="text"] {
-  width: 66%;
+  width: 100%;
   border: none;
   border-bottom: 0.2em solid black;
-  -webkit-animation: slideIn 2s forwards;
+  -webkit-animation: slideIn 3s forwards;
   animation: slideIn 3s forwards;
 }
 @-webkit-keyframes slideIn {
@@ -56,11 +70,6 @@ body #root {
   }
 }
 
-.search-bar input[type="text"] {
-  width: 66%;
-  border: none;
-  border-bottom: 0.2em solid black;
-}
 .search-bar input[type="text"]:focus {
   outline: none !important;
   opacity: 0.5;
@@ -68,12 +77,11 @@ body #root {
 
 .search-icon {
   margin-left: 0.5em;
-  -webkit-animation: fadeIn 5s forwards;
   animation-timing-function: ease;
-  animation: fadeIn 6s forwards;
+  animation: iconFadeIn 6s forwards;
 
 }
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes iconFadeIn {
   0% {
     opacity: 0;
   }
@@ -87,4 +95,45 @@ body #root {
   opacity: 0.5;
 }
 
+.list-entry {
+  margin-top: 0.5em;
+  border-bottom: 1px solid black;
+  animation-duration: 3s;
+  -webkit-animation: fadeIn 3s forwards;
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 
+.pad-right {
+  padding-right: .3em;
+}
+
+.results-list {
+  width: 100%;
+  justify-items: center;
+  margin: 1.5em auto 1.5em auto;
+}
+
+.address {
+  flex-wrap: wrap;
+  font-size: .5em;
+  justify-content: left;
+  text-align: left;
+}
+
+.orange {
+  color: #db7012;
+}
+
+.gray {
+  color: rgb(92, 92, 92);
+}
+.smaller {
+  font-size: 0.5em;
+}
