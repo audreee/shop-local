@@ -226,3 +226,7 @@ h5 {
   height: auto;
   width: auto;
 }
+
+.loading {
+  margin-top: 200px;
+}

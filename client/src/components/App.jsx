@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+// import { Spinner } from 'react-bootstrap';
 
 import Search from './Search.jsx';
 import List from './List.jsx';
 import Modal from './Modal.jsx';
 import AddNew from './AddNew.jsx';
 import Map from './Map.jsx';
+import Spinner from './Spinner.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -15,13 +17,16 @@ class App extends React.Component {
       displayedResults: [],
       showModal: false,
       currentLat: null,
-      currentLong: null
+      currentLong: null,
+      mapLoading: true
     }
+
     this.searchBusinesses = this.searchBusinesses.bind(this);
     this.showResults = this.showResults.bind(this);
     this.showMoreOnScroll = this.showMoreOnScroll.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.getLocation = this.getLocation.bind(this);
+    this.toggleMapLoading = this.toggleMapLoading.bind(this);
   }
 
   searchBusinesses(searchTerms) {
@@ -83,6 +88,10 @@ class App extends React.Component {
     });
   }
 
+  toggleMapLoading() {
+    this.setState({ mapLoading: !this.state.mapLoading })
+  }
+
   componentDidMount() {
     this.getLocation();
     axios.get('/all')
@@ -106,8 +115,9 @@ class App extends React.Component {
         <div className="app-container">
             <h2 className="title">Localize LA</h2>
             <Search searchBusinesses={this.searchBusinesses} />
+            {this.state.mapLoading && <Spinner />}
             {this.state.currentLong && this.state.currentLat
-            ? <Map currentLat={this.state.currentLat} currentLong={this.state.currentLong} />
+            ? <Map currentLat={this.state.currentLat} currentLong={this.state.currentLong} toggleMapLoading={this.toggleMapLoading} />
             : null}
             <List displayedResults={this.state.displayedResults} />
             <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew /></Modal>

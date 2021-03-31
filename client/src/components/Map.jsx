@@ -9,9 +9,13 @@ const mapStyles = {
 };
 
 export class MapContainer extends React.Component {
+  componentDidMount() {
+    this.props.toggleMapLoading();
+  }
+
   render() {
     return (
-      <div className="map-container">
+      <div className="fadeIn map-container">
       <Map
         google={this.props.google}
         zoom={14}
