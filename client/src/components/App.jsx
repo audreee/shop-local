@@ -13,12 +13,15 @@ class App extends React.Component {
     this.state = {
       results: [],
       displayedResults: [],
-      showModal: false
+      showModal: false,
+      currentLat: null,
+      currentLong: null
     }
     this.searchBusinesses = this.searchBusinesses.bind(this);
     this.showResults = this.showResults.bind(this);
     this.showMoreOnScroll = this.showMoreOnScroll.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.getLocation = this.getLocation.bind(this);
   }
 
   searchBusinesses(searchTerms) {
@@ -71,7 +74,17 @@ class App extends React.Component {
     this.setState({showModal: !this.state.showModal});
   };
 
+  getLocation() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.setState({
+        currentLat: position.coords.latitude,
+        currentLong: position.coords.longitude
+      })
+    });
+  }
+
   componentDidMount() {
+    this.getLocation();
     axios.get('/all')
     .then((res) => {
       this.setState({ results: res.data }, this.showResults);
@@ -93,7 +106,9 @@ class App extends React.Component {
         <div className="app-container">
             <h2 className="title">Localize LA</h2>
             <Search searchBusinesses={this.searchBusinesses} />
-            <Map />
+            {this.state.currentLong && this.state.currentLat
+            ? <Map currentLat={this.state.currentLat} currentLong={this.state.currentLong} />
+            : null}
             <List displayedResults={this.state.displayedResults} />
             <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew /></Modal>
         </div>

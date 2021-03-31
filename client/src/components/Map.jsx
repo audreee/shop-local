@@ -18,8 +18,8 @@ export class MapContainer extends React.Component {
         style={mapStyles}
         initialCenter={
           {
-            lat: -1.2884,
-            lng: 36.8233
+            lat: this.props.currentLat,
+            lng: this.props.currentLong
           }
         }
       />
