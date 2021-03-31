@@ -1,7 +1,10 @@
 import React from 'react';
+import axios from 'axios';
+
 import Search from './Search.jsx';
 import List from './List.jsx';
-import axios from 'axios';
+import Modal from './Modal.jsx';
+import AddNew from './AddNew.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -9,10 +12,12 @@ class App extends React.Component {
     this.state = {
       results: [],
       displayedResults: [],
+      showModal: false
     }
     this.searchBusinesses = this.searchBusinesses.bind(this);
     this.showResults = this.showResults.bind(this);
     this.showMoreOnScroll = this.showMoreOnScroll.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   searchBusinesses(searchTerms) {
@@ -61,6 +66,9 @@ class App extends React.Component {
     }
   }
 
+  toggleModal = () => {
+    this.setState({showModal: !this.state.showModal});
+  };
 
   componentDidMount() {
     axios.get('/all')
@@ -75,10 +83,18 @@ class App extends React.Component {
 
   render() {
     return(
-      <div className="app-container">
-        <h2 className="title">Localize LA</h2>
-        <Search searchBusinesses={this.searchBusinesses} />
-        <List displayedResults={this.state.displayedResults} />
+      <div>
+        <div className="flex-row top">
+          <div className="flex-row">
+            <i className="fas fa-plus plus-icon" onClick={this.toggleModal}></i>
+          </div>
+        </div>
+        <div className="app-container">
+            <h2 className="title">Localize LA</h2>
+            <Search searchBusinesses={this.searchBusinesses} />
+            <List displayedResults={this.state.displayedResults} />
+            <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew /></Modal>
+        </div>
       </div>
     )
   }

@@ -12,6 +12,21 @@ h5 {
   font-size: 0.5em;
 }
 
+.top {
+  text-align: right;
+  float: right;
+}
+
+.plus-icon {
+  font-size: 2em;
+  margin: 0.8em;
+}
+
+.plus-icon:hover {
+  color: #db7012;
+  cursor: pointer;
+}
+
 .app-container {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 2em;
@@ -136,4 +151,72 @@ h5 {
 }
 .smaller {
   font-size: 0.5em;
+}
+
+.modal {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top:0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,.5);
+}
+
+.modalContent {
+  position: absolute;
+  background-color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  box-shadow: 0 10px 25px rgba(0,0,0,.5)!important;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2em;
+}
+
+.modalCloseButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-style: none;
+  background-color: transparent;
+  padding: .6em;
+}
+
+.modalCloseButton:hover {
+  cursor: pointer;
+}
+
+.add-new {
+  padding: .5em;
+  background-color: black;
+  color: white;
+}
+
+.add-new input, #select, button{
+  font-size: 1em;
+  color: white;
+  margin-bottom: 0.8em;
+  padding: 0.3em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid white;
+}
+
+.add-new button {
+  border: 2px solid white;
+}
+
+.add-new button:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s;
+}
+
+.add-new ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
 }
