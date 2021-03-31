@@ -1,7 +1,7 @@
 body #root {
-  width: 100%;
-  height: 100%;
-  margin: auto;
+  /* width: 100%;
+  height: 100%; */
+  /* margin: auto; */
 }
 
 .app-container {
@@ -20,7 +20,7 @@ body #root {
   flex-direction: row;
 }
 
-.flex-row {
+.flex-column {
   display: flex;
   flex-direction: column;
 }
@@ -39,6 +39,21 @@ body #root {
   width: 66%;
   border: none;
   border-bottom: 0.2em solid black;
+  -webkit-animation: slideIn 2s forwards;
+  animation: slideIn 3s forwards;
+}
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1.0;
+  }
 }
 
 .search-bar input[type="text"] {
@@ -53,6 +68,18 @@ body #root {
 
 .search-icon {
   margin-left: 0.5em;
+  -webkit-animation: fadeIn 5s forwards;
+  animation-timing-function: ease;
+  animation: fadeIn 6s forwards;
+
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1.0;
+  }
 }
 
 .search-icon:hover {
@@ -60,6 +87,4 @@ body #root {
   opacity: 0.5;
 }
 
-.name {
 
-}

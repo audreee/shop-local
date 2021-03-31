@@ -11,5 +11,16 @@ module.exports = {
         res.status(200).send(results.rows);
       }
     })
+  },
+
+  findAllBusinesses: (req, res) => {
+    db.getAllBusinesses((err, results) => {
+      if (err) {
+        console.error(err);
+        res.sendStatus(400);
+      } else {
+        res.status(200).send(results.rows)
+      }
+    })
   }
 }
