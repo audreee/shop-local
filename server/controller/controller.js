@@ -2,7 +2,8 @@ const db = require('../../db/models/models.js');
 
 module.exports = {
   findBusinesses: (req, res) => {
-    db.getBusinesses(req.query.term, (err, results) => {
+    console.log('query params', req.query.terms)
+    db.getBusinesses(req.query.terms, (err, results) => {
       if (err) {
         console.error(err);
         res.sendStatus(400);
