@@ -26,7 +26,6 @@ class App extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.toggleMapLoading = this.toggleMapLoading.bind(this);
-    this.addNewBusiness = this.addNewBusiness.bind(this);
   }
 
   searchBusinesses(searchTerms) {

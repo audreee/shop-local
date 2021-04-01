@@ -230,3 +230,22 @@ h5 {
 .loading {
   margin-top: 200px;
 }
+
+.infoWindow {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+}
+
+.info-name {
+  font-size: 1.2em;
+}
+
+.info-category {
+  font-size: 1em;
+  color: rgb(92, 92, 92);
+}
+
+.info-community {
+  font-size: 1em;
+}

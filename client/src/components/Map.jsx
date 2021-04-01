@@ -1,6 +1,6 @@
 // import { Map, GoogleApiWrapper } from 'google-maps-react';
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import API_KEY from '../../../config.js';
 
 const mapStyles = {
@@ -12,19 +12,65 @@ export class MapContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-      locations: []
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {}
     }
     this.displayMarkers = this.displayMarkers.bind(this);
+    this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.displayInfoWindow = this.displayInfoWindow.bind(this);
+    this.onClose = this.onClose.bind(this);
   }
 
   displayMarkers() {
     return this.props.businesses.map((business, index) => {
-      return <Marker key={index} id={index} position={{
-       lat: business.lat,
-       lng: business.long
-     }}
-     onClick={() => console.log("You clicked me!")} />
+      return <Marker
+        key={index}
+        id={index}
+        onClick={ this.onMarkerClick }
+        name={business.name}
+        community={business.community}
+        category={business.category}
+        position={{
+          lat: business.lat,
+          lng: business.long
+        }}
+      />
     })
+  }
+
+  onMarkerClick (props, marker, e) {
+    this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+      }, this.displayInfoWindow
+    )
+  }
+
+  onClose (props) {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  }
+
+  displayInfoWindow() {
+    return(
+      <InfoWindow
+        marker={this.state.activeMarker}
+        visible={this.state.showingInfoWindow}
+        onClose={this.onClose}
+        >
+        <div>
+          <h4 className="info-window info-name">{this.state.selectedPlace.name}</h4>
+          <h4 className="info-window info-category">{this.state.selectedPlace.category}</h4>
+          <h4 className="info-window info-community"><i className="fas fa-heart"></i> {this.state.selectedPlace.community}-owned business</h4>
+        </div>
+      </InfoWindow>
+    )
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -53,6 +99,7 @@ export class MapContainer extends React.Component {
         }
         >
           {this.displayMarkers()}
+          {this.displayInfoWindow()}
         </Map>
       </div>
     );
