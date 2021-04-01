@@ -1,5 +1,5 @@
 # shop-local
-![alt-text]
+![alt-text](https://github.com/audreee/shop-local/blob/main/demo.gif)
 ## What Is It?
 A local business finder that finds local small businesses owned by members of vulnerable communities. This app was built in under 2 days as part of a challenge to build a "Minimum Viable Product" in less than 2 days.
 
