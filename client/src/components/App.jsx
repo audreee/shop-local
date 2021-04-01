@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import { Spinner } from 'react-bootstrap';
 
 import Search from './Search.jsx';
 import List from './List.jsx';
@@ -27,6 +26,7 @@ class App extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.getLocation = this.getLocation.bind(this);
     this.toggleMapLoading = this.toggleMapLoading.bind(this);
+    this.addNewBusiness = this.addNewBusiness.bind(this);
   }
 
   searchBusinesses(searchTerms) {
@@ -120,7 +120,7 @@ class App extends React.Component {
             ? <Map currentLat={this.state.currentLat} currentLong={this.state.currentLong} businesses={this.state.results} toggleMapLoading={this.toggleMapLoading} />
             : null}
             <List displayedResults={this.state.displayedResults} />
-            <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew /></Modal>
+            <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew handleClose={this.toggleModal} /></Modal>
         </div>
       </div>
     )

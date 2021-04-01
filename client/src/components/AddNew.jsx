@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class AddNew extends React.Component {
   constructor() {
@@ -29,7 +30,12 @@ class AddNew extends React.Component {
   }
 
   handleNewSubmit(e) {
-    console.log('Thanks!')
+    axios.post('/businesses', this.state)
+    .then(response => {
+      console.log(response.data);
+      this.props.handleClose();
+    })
+    .catch(error => {console.error(error)})
   }
 
   render() {
