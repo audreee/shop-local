@@ -18,20 +18,23 @@ export class MapContainer extends React.Component {
   }
 
   displayMarkers() {
-    return this.state.locations.map((location, index) => {
+    return this.props.businesses.map((business, index) => {
       return <Marker key={index} id={index} position={{
-       lat: location.lat,
-       lng: location.lng
+       lat: business.lat,
+       lng: business.long
      }}
      onClick={() => console.log("You clicked me!")} />
     })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.businesses !== this.props.businesses) {
+      this.displayMarkers();
+    }
+  }
+
   componentDidMount() {
-    let locations = this.props.businesses.map(business => (
-      { lat: business.lat, lng: business.long }
-    ));
-    this.setState({ locations: locations })
+    this.displayMarkers();
     this.props.toggleMapLoading();
   }
 
