@@ -1,5 +1,5 @@
 # shop-local
-
+![alt-text]
 ## What Is It?
 A local business finder that finds local small businesses owned by members of vulnerable communities. This app was built in under 2 days as part of a challenge to build a "Minimum Viable Product" in less than 2 days.
 
