@@ -112,7 +112,7 @@ class App extends React.Component {
           </div>
         </div>
         <div className="app-container">
-            <h2 className="title">Localize LA</h2>
+            <h2 className="title">Shop Local</h2>
             <Search searchBusinesses={this.searchBusinesses} />
             {this.state.mapLoading && <Spinner />}
             {this.state.currentLong && this.state.currentLat
