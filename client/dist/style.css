@@ -153,7 +153,7 @@ h5 {
   font-size: 0.5em;
 }
 
-.modal {
+.myModal {
   position: fixed;
   z-index: 20;
   left: 0;
