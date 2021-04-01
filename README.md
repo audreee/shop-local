@@ -1,13 +1,13 @@
 # shop-local
 ![alt-text](https://github.com/audreee/shop-local/blob/main/demo.gif)
 
-## What It Is
+## What Is It?
 A local business finder that finds local small businesses owned by members of vulnerable communities. This app was built in under 2 days as part of a challenge to build a "Minimum Viable Product" in less than 2 days.
 
 ## Why Should I Use It?
 Although there has recently been an uptick in blog posts and media listing local, minority-owned businesses, there is a lack of centralized information. This web app collects and stores this information in one place and recommends nearby shops to support.
 
-## How To Use:
+## How Do I Use It?
 1. Fork and clone the repo to your local machine
 2. Install all dependencies with npm install
 3. Create a config.js file in the root directory exporting a valid Google Maps API token
@@ -21,4 +21,4 @@ Although there has recently been an uptick in blog posts and media listing local
 - PostgreSQL
 - Google Maps API
 - JavaScript, HTML, CSS
-- Bootstrap (for spinner)
+- Bootstrap (for loading spinner)
