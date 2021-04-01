@@ -117,7 +117,7 @@ class App extends React.Component {
             <Search searchBusinesses={this.searchBusinesses} />
             {this.state.mapLoading && <Spinner />}
             {this.state.currentLong && this.state.currentLat
-            ? <Map currentLat={this.state.currentLat} currentLong={this.state.currentLong} toggleMapLoading={this.toggleMapLoading} />
+            ? <Map currentLat={this.state.currentLat} currentLong={this.state.currentLong} businesses={this.state.results} toggleMapLoading={this.toggleMapLoading} />
             : null}
             <List displayedResults={this.state.displayedResults} />
             <Modal show={this.state.showModal} handleClose={this.toggleModal}><AddNew /></Modal>
