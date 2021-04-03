@@ -15,9 +15,10 @@ Although there has recently been an uptick in blog posts and media listing local
 6. Open localhost:3000 on your machine
 
 ## What Tools Did You Use?
-- Node / Express
+- Node (& Nodemon) / Express
 - React
 - PostgreSQL (Full-text search and data persistence)
+- Axios
 - Google Maps API
 - JavaScript, HTML, CSS
 - Bootstrap (for loading spinner)
