@@ -17,7 +17,7 @@ Although there has recently been an uptick in blog posts and media listing local
 ## What Tools Did You Use?
 - Node / Express
 - React
-- PostgreSQL
+- PostgreSQL (Full-text search and data persistence)
 - Google Maps API
 - JavaScript, HTML, CSS
 - Bootstrap (for loading spinner)
